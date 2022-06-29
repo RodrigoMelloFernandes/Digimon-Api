@@ -1,10 +1,8 @@
+import Characters from './pages/Characters';
 
-function App() {
-  return (
-    <div>
-      <p>Teste</p>
-    </div>
-  );
+const App = () => {
+
+  return <Characters/>;
 }
 
 export default App;
