@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services";
+import styles from './characters.module.scss'
 
 const Characters = () => {
     const [digimon, setDigimon] = useState([])
@@ -16,16 +17,17 @@ const Characters = () => {
     return (
         <>
         
-        <h1>Characters</h1>
-        <ul>
+        <h1 className={styles.digimonTitle}>Characters</h1>
+        <ul className={styles.digimon}>
             {
                 digimon.map(character => {
                     return (
-                        <li>
-                            <span>{character.name}</span>
-                            <img src={character.img} alt="" />
-                            <span>{character.level}</span>
-
+                        <li key={character.id}>
+                            <div className={styles.digimon__card}>
+                                <h2 className={styles.digimon__name}>{character.name}</h2>
+                                <img className={styles.digimon__img} src={character.img} alt="" />
+                                <p className={styles.digimon__level}>Level: {character.level}</p>
+                            </div>
                         </li>
                     )
                 })
