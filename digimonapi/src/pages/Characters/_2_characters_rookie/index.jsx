@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
-import api from "../../services";
-import styles from './characters.module.scss'
+import api from "../../../services";
+import styles from './rookie.module.scss'
 
-const Characters = () => {
+const CharactersRookie = () => {
     
     const [digimon, setDigimon] = useState([])
 
-    const digimonT = digimon
+    const digimonRookie = digimon
        .filter(function(obj){
         return obj.level==="Rookie"
     });
-
-    console.log('Digimon T', digimonT)
 
 
     useEffect(() => {
@@ -26,11 +24,10 @@ const Characters = () => {
 
     return (
         <>
-        
-        <h1 className={styles.digimonTitle}>Characters</h1>
+        <h1 className={styles.digimonTitle}>Characters Level Rookie</h1>
         <ul className={styles.digimon}>
             {
-                digimon.map(character => {
+                digimonRookie.map(character => {
                     return (
                         <li key={character.id}>
                             <div className={styles.digimon__card}>
@@ -41,8 +38,7 @@ const Characters = () => {
                         </li>
                     )
                 })
-            }
-            
+            }    
         </ul>       
         
         </>
@@ -50,4 +46,4 @@ const Characters = () => {
     )
 }
 
-export default Characters;
+export default CharactersRookie;
