@@ -3,13 +3,23 @@ import api from "../../services";
 import styles from './characters.module.scss'
 
 const Characters = () => {
+    
     const [digimon, setDigimon] = useState([])
+
+    const digimonT = digimon
+       .filter(function(obj){
+        return obj.level==="Rookie"
+    });
+
+    console.log('Digimon T', digimonT)
+
+
     useEffect(() => {
         api
         .get('/digimon')
         .then(response => {
             setDigimon(response.data);
-            console.log('Segundo Log' , digimon);
+            
         })
         .catch(err => console.log(err))
     } , [])
@@ -32,7 +42,9 @@ const Characters = () => {
                     )
                 })
             }
-        </ul>
+            
+        </ul>       
+        
         </>
         
     )
